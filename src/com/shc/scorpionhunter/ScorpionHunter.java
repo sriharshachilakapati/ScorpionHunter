@@ -55,6 +55,7 @@ public class ScorpionHunter extends Game
     private GameTimer spawnTimer;
 
     private boolean startGame;
+    private boolean paused;
 
     public void init()
     {
@@ -120,13 +121,25 @@ public class ScorpionHunter extends Game
     {
         Display.setTitle("ScorpionHunter");
 
-        if (Keyboard.isPressed(Keyboard.KEY_ESCAPE))
+        if (paused && Keyboard.isClicked(Keyboard.KEY_ESCAPE))
             end();
 
         if (!startGame && Keyboard.isClicked(Keyboard.KEY_SPACE))
         {
             startGame = true;
             spawnScorpion();
+            return;
+        }
+
+        if (startGame && health != 0 && Keyboard.isClicked(Keyboard.KEY_ESCAPE) && !paused)
+        {
+            paused = true;
+            return;
+        }
+
+        if (paused && Keyboard.isClicked(Keyboard.KEY_SPACE))
+        {
+            paused = false;
             return;
         }
 
@@ -140,7 +153,7 @@ public class ScorpionHunter extends Game
             return;
         }
 
-        if (health == 0 || !startGame)
+        if (health == 0 || !startGame || paused)
             return;
 
         gameScene.update(delta);
@@ -200,7 +213,7 @@ public class ScorpionHunter extends Game
         Color gray = Color.BLACK.copy();
         gray.setAlpha(0.9f);
 
-        if (!startGame || health == 0)
+        if (!startGame || health == 0 || paused)
         {
             batcher.begin(Primitive.TRIANGLE_STRIP);
             {
@@ -226,19 +239,24 @@ public class ScorpionHunter extends Game
                 messageString1 = "ScorpionHunter";
                 messageString2 = "Press SPACE to PLAY";
             }
-            else
+            else if (health == 0)
             {
                 messageString1 = "You are DEAD!";
                 messageString2 = "You scored " + score + "\nPress SPACE to try again!";
             }
+            else
+            {
+                messageString1 = "PAUSED";
+                messageString2 = "Press SPACE to RESUME\nESCAPE to QUIT";
+            }
 
-            float x = Display.getWidth()/2 - largeFont.getWidth(messageString1)/2;
-            float y = Display.getHeight()/2 - largeFont.getHeight()/2 - 20;
+            float x = Display.getWidth() / 2 - largeFont.getWidth(messageString1) / 2;
+            float y = Display.getHeight() / 2 - largeFont.getHeight() / 2 - 20;
 
             largeFont.drawString(batcher, messageString1, x, y, Color.random());
 
-            x = Display.getWidth()/2 - font.getWidth(messageString2)/2;
-            y = Display.getHeight()/2 + font.getHeight()/2 + 20;
+            x = Display.getWidth() / 2 - font.getWidth(messageString2) / 2;
+            y = Display.getHeight() / 2 + font.getHeight() / 2 + 20;
 
             font.drawString(batcher, messageString2, x, y, Color.WHITE);
         }
