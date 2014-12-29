@@ -47,6 +47,8 @@ public class Bullet extends Entity2D
                 scorpion.destroy();
                 ScorpionHunter.gameScene.addChild(new Blood(scorpion.getPosition()));
                 ScorpionHunter.score += 10;
+
+                ScorpionHunter.HURT.play();
             }
             else
                 scorpion.freeze();

@@ -3,6 +3,7 @@ package com.shc.scorpionhunter;
 import com.shc.scorpionhunter.entities.Bullet;
 import com.shc.scorpionhunter.entities.Scorpion;
 import com.shc.scorpionhunter.entities.Shooter;
+import com.shc.silenceengine.audio.Sound;
 import com.shc.silenceengine.collision.QuadTreeSceneCollider;
 import com.shc.silenceengine.core.Display;
 import com.shc.silenceengine.core.Game;
@@ -43,6 +44,10 @@ public class ScorpionHunter extends Game
     public static Scene   gameScene;
     public static Shooter shooter;
 
+    public static Sound MUSIC;
+    public static Sound SHOOT;
+    public static Sound HURT;
+
     private QuadTreeSceneCollider collider;
 
     public static int score;
@@ -69,6 +74,10 @@ public class ScorpionHunter extends Game
         int fontID = loader.defineFont("resources/Punk_s_not_dead.ttf", TrueTypeFont.STYLE_NORMAL, 48);
         int fontID2 = loader.defineFont("resources/Punk_s_not_dead.ttf", TrueTypeFont.STYLE_NORMAL, 128);
 
+        int musicID = loader.defineSound("resources/music.ogg");
+        int shootID = loader.defineSound("resources/shoot.wav");
+        int hurtID  = loader.defineSound("resources/hurt.wav");
+
         loader.startLoading();
 
         SpriteSheet spriteSheet;
@@ -92,6 +101,13 @@ public class ScorpionHunter extends Game
 
         font = loader.getFont(fontID);
         largeFont = loader.getFont(fontID2);
+
+        MUSIC = loader.getSound(musicID);
+        SHOOT = loader.getSound(shootID);
+        HURT  = loader.getSound(hurtID);
+
+        MUSIC.setLooping(true);
+        MUSIC.play();
 
         initGameScene();
     }
@@ -121,7 +137,7 @@ public class ScorpionHunter extends Game
     {
         Display.setTitle("ScorpionHunter");
 
-        if (paused && Keyboard.isClicked(Keyboard.KEY_ESCAPE))
+        if ((paused || health == 0 || !startGame) && Keyboard.isClicked(Keyboard.KEY_ESCAPE))
             end();
 
         if (!startGame && Keyboard.isClicked(Keyboard.KEY_SPACE))

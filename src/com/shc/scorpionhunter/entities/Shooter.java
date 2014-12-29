@@ -59,6 +59,8 @@ public class Shooter extends Entity2D
             texture = ScorpionHunter.SHOOTER_SHOOTING;
             canShoot = false;
             ScorpionHunter.gameScene.addChild(new Bullet(getCenter().add(getVelocity()), getRotation()));
+
+            ScorpionHunter.SHOOT.play();
         }
 
         ScorpionHunter.CAMERA.center(getCenter());
@@ -74,6 +76,8 @@ public class Shooter extends Entity2D
             {
                 ScorpionHunter.gameScene.addChild(new Blood(getPosition()));
                 ScorpionHunter.health -= 5;
+
+                ScorpionHunter.HURT.play();
             }
         }
     }

@@ -8,6 +8,8 @@
         <element id="extracted-dir" path="$PROJECT_DIR$/libs/SilenceEngine.jar" path-in-jar="/" />
         <element id="extracted-dir" path="$PROJECT_DIR$/libs/lwjgl.jar" path-in-jar="/" />
         <element id="extracted-dir" path="$PROJECT_DIR$/libs/lwjgl-natives.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$PROJECT_DIR$/libs/jogg-0.0.7.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$PROJECT_DIR$/libs/jorbis-0.0.17-2.jar" path-in-jar="/" />
       </root>
     </artifact>
   </component>
@@ -183,6 +185,8 @@
         <root url="jar://$PROJECT_DIR$/libs/SilenceEngine.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/lwjgl.jar!/" />
         <root url="jar://$PROJECT_DIR$/libs/lwjgl-natives.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jogg-0.0.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jorbis-0.0.17-2.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
