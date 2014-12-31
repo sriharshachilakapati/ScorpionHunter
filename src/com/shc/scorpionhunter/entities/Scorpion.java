@@ -1,6 +1,8 @@
 package com.shc.scorpionhunter.entities;
 
+import com.shc.scorpionhunter.Resources;
 import com.shc.scorpionhunter.ScorpionHunter;
+import com.shc.scorpionhunter.states.PlayState;
 import com.shc.silenceengine.entity.Entity2D;
 import com.shc.silenceengine.geom2d.Rectangle;
 import com.shc.silenceengine.graphics.Batcher;
@@ -27,7 +29,7 @@ public class Scorpion extends Entity2D
         freezeTimer = new GameTimer(3, TimeUtils.Unit.SECONDS);
         freezeTimer.setCallback(() -> frozen = false);
 
-        this.velocity = velocity;
+        this.velocity = -velocity;
     }
 
     public void update(float delta)
@@ -40,7 +42,7 @@ public class Scorpion extends Entity2D
 
         frozen = false;
 
-        Vector2 direction = getCenter().subtract(ScorpionHunter.shooter.getCenter());
+        Vector2 direction = getCenter().subtract(PlayState.shooter.getCenter());
         setRotation((float) Math.toDegrees(Math.atan2(direction.y, direction.x)) - 90);
 
         float sinAngle = (float) Math.sin(Math.toRadians(getRotation() + 90));
@@ -61,9 +63,9 @@ public class Scorpion extends Entity2D
     {
         batcher.applyTransform(getTransform());
         if (frozen)
-            batcher.drawTexture2d(ScorpionHunter.SCORPION_FROZEN, Vector2.ZERO);
+            batcher.drawTexture2d(Resources.SCORPION_FROZEN, Vector2.ZERO);
         else
-            batcher.drawTexture2d(ScorpionHunter.SCORPION_NORMAL, getVelocity().scale(delta));
+            batcher.drawTexture2d(Resources.SCORPION_NORMAL, getVelocity().scale(delta));
     }
 
     public void freeze()

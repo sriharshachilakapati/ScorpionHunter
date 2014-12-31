@@ -1,6 +1,8 @@
 package com.shc.scorpionhunter.entities;
 
+import com.shc.scorpionhunter.Resources;
 import com.shc.scorpionhunter.ScorpionHunter;
+import com.shc.scorpionhunter.states.PlayState;
 import com.shc.silenceengine.entity.Entity2D;
 import com.shc.silenceengine.geom2d.Rectangle;
 import com.shc.silenceengine.graphics.Batcher;
@@ -45,10 +47,10 @@ public class Bullet extends Entity2D
             if (scorpion.isFrozen())
             {
                 scorpion.destroy();
-                ScorpionHunter.gameScene.addChild(new Blood(scorpion.getPosition()));
-                ScorpionHunter.score += 10;
+                PlayState.GAME_SCENE.addChild(new Blood(scorpion.getPosition()));
+                ScorpionHunter.SCORE += 10;
 
-                ScorpionHunter.HURT.play();
+                Resources.HURT.play();
             }
             else
                 scorpion.freeze();
@@ -60,6 +62,6 @@ public class Bullet extends Entity2D
     public void render(float delta, Batcher batcher)
     {
         batcher.applyTransform(getTransform());
-        batcher.drawTexture2d(ScorpionHunter.BULLET, getVelocity().scale(delta));
+        batcher.drawTexture2d(Resources.BULLET, getVelocity().scale(delta));
     }
 }

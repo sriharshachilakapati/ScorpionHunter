@@ -1,5 +1,6 @@
 package com.shc.scorpionhunter.entities;
 
+import com.shc.scorpionhunter.Resources;
 import com.shc.scorpionhunter.ScorpionHunter;
 import com.shc.silenceengine.entity.Entity2D;
 import com.shc.silenceengine.geom2d.Rectangle;
@@ -34,6 +35,6 @@ public class Blood extends Entity2D
         color.setAlpha(life);
 
         batcher.applyTransform(getTransform());
-        batcher.drawTexture2d(ScorpionHunter.BLOOD, Vector2.ZERO, color);
+        batcher.drawTexture2d(Resources.BLOOD, Vector2.ZERO, color);
     }
 }

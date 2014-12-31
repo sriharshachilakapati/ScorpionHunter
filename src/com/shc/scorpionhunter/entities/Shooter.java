@@ -1,6 +1,9 @@
 package com.shc.scorpionhunter.entities;
 
+import com.shc.scorpionhunter.Resources;
 import com.shc.scorpionhunter.ScorpionHunter;
+import com.shc.scorpionhunter.states.PlayState;
+import com.shc.silenceengine.core.Display;
 import com.shc.silenceengine.entity.Entity2D;
 import com.shc.silenceengine.geom2d.Rectangle;
 import com.shc.silenceengine.graphics.Batcher;
@@ -23,7 +26,7 @@ public class Shooter extends Entity2D
     {
         super(new Rectangle(0, 0, 128, 128));
 
-        texture = ScorpionHunter.SHOOTER_STANDING;
+        texture = Resources.SHOOTER_STANDING;
 
         canShoot = true;
         setPosition(position);
@@ -56,14 +59,12 @@ public class Shooter extends Entity2D
         if (Keyboard.isClicked(Keyboard.KEY_SPACE) && canShoot)
         {
             shootTimer.start();
-            texture = ScorpionHunter.SHOOTER_SHOOTING;
+            texture = Resources.SHOOTER_SHOOTING;
             canShoot = false;
-            ScorpionHunter.gameScene.addChild(new Bullet(getCenter().add(getVelocity()), getRotation()));
+            PlayState.GAME_SCENE.addChild(new Bullet(getCenter().add(getVelocity()), getRotation()));
 
-            ScorpionHunter.SHOOT.play();
+            Resources.SHOOT.play();
         }
-
-        ScorpionHunter.CAMERA.center(getCenter());
     }
 
     public void collision(Entity2D other)
@@ -74,10 +75,10 @@ public class Shooter extends Entity2D
 
             if (!((Scorpion) other).isFrozen())
             {
-                ScorpionHunter.gameScene.addChild(new Blood(getPosition()));
-                ScorpionHunter.health -= 5;
+                PlayState.GAME_SCENE.addChild(new Blood(getPosition()));
+                ScorpionHunter.HEALTH -= 5;
 
-                ScorpionHunter.HURT.play();
+                Resources.HURT.play();
             }
         }
     }
@@ -85,7 +86,7 @@ public class Shooter extends Entity2D
     private void shootTimeOut()
     {
         canShoot = true;
-        texture = ScorpionHunter.SHOOTER_STANDING;
+        texture = Resources.SHOOTER_STANDING;
     }
 
     public void render(float delta, Batcher batcher)
