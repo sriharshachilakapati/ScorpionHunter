@@ -14,24 +14,37 @@ import com.shc.silenceengine.graphics.SpriteSheet;
 import com.shc.silenceengine.graphics.TrueTypeFont;
 
 /**
+ * This is the main Game class of the ScorpionHunter example game made using
+ * SilenceEngine. This class takes care of resources, game states and the
+ * game-play.
+ *
  * @author Sri Harsha Chilakapati
  */
 public class ScorpionHunter extends Game
 {
     static
     {
+        // You have to make it false when you are distributing the game.
+        // Disabling development mode will speed up the game, because
+        // OpenGL and OpenAL error checks which are costly will be disabled.
         development = true;
     }
 
-    public static GameState STATE;
+    // The GameStates in this game.
+    public static GameState CURRENT_STATE;
     public static GameState INTRO_STATE;
     public static GameState PLAY_STATE;
     public static GameState PAUSE_STATE;
     public static GameState GAMEOVER_STATE;
 
+    // The SCORE and HEALTH of the player
     public static int SCORE;
     public static int HEALTH;
 
+    /**
+     * This method is called only once the Game starts.
+     * This is used to handle initialization of the game.
+     */
     public void init()
     {
         // Initialize the resources
@@ -39,14 +52,15 @@ public class ScorpionHunter extends Game
 
         // Initialize the GameStates
         INTRO_STATE = new IntroState();
-        PLAY_STATE  = new PlayState();
+        PLAY_STATE = new PlayState();
         PAUSE_STATE = new PauseState();
         GAMEOVER_STATE = new GameOverState();
 
         // Initially show the INTRO state
-        STATE = INTRO_STATE;
+        CURRENT_STATE = INTRO_STATE;
     }
 
+    // This is a private method used to initialize resources
     private void initResources()
     {
         // Create the Cameras first
@@ -106,29 +120,56 @@ public class ScorpionHunter extends Game
         Resources.MUSIC.play();
     }
 
+    /**
+     * Used to do the logic of the game. This method is called
+     * almost 60 times per second since that is the target rate.
+     *
+     * @param delta This is the time taken for each frame in seconds.
+     */
     public void update(float delta)
     {
         // Update the current GameState
-        STATE.update(delta);
+        CURRENT_STATE.update(delta);
     }
 
+    /**
+     * This method is called whenever the display needs to be redrawn.
+     * Use this method to render the contents of the game to the screen.
+     *
+     * @param delta   This is the lag when rendering. 0 means no lag, and 1 means complete lag.
+     * @param batcher This is the instance of the Batcher used to render graphics.
+     */
     public void render(float delta, Batcher batcher)
     {
         // Render the current GameState
-        STATE.render(delta, batcher);
+        CURRENT_STATE.render(delta, batcher);
     }
 
+    /**
+     * This method is called whenever the user has resized the
+     * game window. This also gets called when you switched screen
+     * modes, and also maximized or minimized the game.
+     */
     public void resize()
     {
         Resources.CAMERA.initProjection(Display.getWidth(), Display.getHeight());
         Resources.HUD_CAMERA.initProjection(Display.getWidth(), Display.getHeight());
     }
 
+    /**
+     * Called when the game is just about to exit. You have to use
+     * this method to clean-up any of the resources you might be using.
+     */
     public void dispose()
     {
         ResourceLoader.getInstance().dispose();
     }
 
+    /**
+     * This is the entry point of this game.
+     *
+     * @param args The command line arguments if passed any.
+     */
     public static void main(String[] args)
     {
         new ScorpionHunter().start();

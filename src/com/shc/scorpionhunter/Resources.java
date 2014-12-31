@@ -6,6 +6,10 @@ import com.shc.silenceengine.graphics.TrueTypeFont;
 import com.shc.silenceengine.graphics.opengl.Texture;
 
 /**
+ * This class is used to store the resources needed for this game.
+ * Though this is used to store the resources, the resources are
+ * loaded and disposed in the main ScorpionHunter class.
+ *
  * @author Sri Harsha Chilakapati
  */
 public final class Resources

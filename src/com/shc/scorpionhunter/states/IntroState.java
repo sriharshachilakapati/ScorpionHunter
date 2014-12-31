@@ -21,7 +21,7 @@ public class IntroState extends GameState
             Game.end();
 
         if (Keyboard.isClicked(Keyboard.KEY_SPACE))
-            ScorpionHunter.STATE = ScorpionHunter.PLAY_STATE;
+            ScorpionHunter.CURRENT_STATE = ScorpionHunter.PLAY_STATE;
     }
 
     @Override

@@ -21,9 +21,6 @@ import com.shc.silenceengine.utils.*;
  */
 public class PlayState extends GameState
 {
-    public static final int WIDTH  = 1920;
-    public static final int HEIGHT = 1080;
-
     public static Scene GAME_SCENE;
     private SceneCollider2D collider;
 
@@ -38,10 +35,10 @@ public class PlayState extends GameState
         ScorpionHunter.HEALTH = 100;
 
         GAME_SCENE = new Scene();
-        GAME_SCENE.addChild(shooter = new Shooter(new Vector2(WIDTH/2, HEIGHT/2)));
+        GAME_SCENE.addChild(shooter = new Shooter(new Vector2(Display.getWidth()/2, Display.getHeight()/2)));
         GAME_SCENE.init();
 
-        collider = new QuadTreeSceneCollider(WIDTH, HEIGHT);
+        collider = new QuadTreeSceneCollider(Display.getWidth(), Display.getHeight());
         collider.setScene(GAME_SCENE);
 
         collider.register(Shooter.class,  Scorpion.class);
@@ -57,8 +54,8 @@ public class PlayState extends GameState
 
     private void spawnScorpion()
     {
-        // Only run if this is the current state
-        if (ScorpionHunter.STATE != this)
+        // Only spawn if this is the current state
+        if (ScorpionHunter.CURRENT_STATE != this)
             return;
 
         // Spawn a scorpion
@@ -68,9 +65,6 @@ public class PlayState extends GameState
         float y = MathUtils.random(2) == 0 ? -shooter.getCenter().y - Display.getHeight()/2
                                            : shooter.getCenter().y + Display.getHeight()/2;
 
-        x = MathUtils.clamp(x, 0, WIDTH - 128);
-        y = MathUtils.clamp(y, 0, HEIGHT - 128);
-
         Vector2 position = new Vector2(x, y);
 
         GAME_SCENE.addChild(new Scorpion(position, 2));
@@ -79,29 +73,19 @@ public class PlayState extends GameState
         spawnTime = MathUtils.clamp(spawnTime - 0.005f, 7, 10);
         spawnTimer.setTime(spawnTime, TimeUtils.Unit.SECONDS);
         spawnTimer.start();
-
-        System.out.println("Scorpion spawned at " + position + ". Next spawn at " + spawnTime);
     }
 
     @Override
     public void update(float delta)
     {
         if (Keyboard.isClicked(Keyboard.KEY_ESCAPE))
-            ScorpionHunter.STATE = ScorpionHunter.PAUSE_STATE;
+            ScorpionHunter.CURRENT_STATE = ScorpionHunter.PAUSE_STATE;
 
         if (ScorpionHunter.HEALTH <= 0)
-            ScorpionHunter.STATE = ScorpionHunter.GAMEOVER_STATE;
+            ScorpionHunter.CURRENT_STATE = ScorpionHunter.GAMEOVER_STATE;
 
         GAME_SCENE.update(delta);
         collider.checkCollisions();
-
-        // Center the player in the scene
-        Vector2 center = shooter.getCenter().copy();
-
-        center.x = MathUtils.clamp(center.x, Display.getWidth()/2, WIDTH - Display.getWidth()/2);
-        center.y = MathUtils.clamp(center.y, Display.getHeight()/2, HEIGHT - Display.getHeight()/2);
-
-        Resources.CAMERA.center(center);
     }
 
     @Override
@@ -109,9 +93,14 @@ public class PlayState extends GameState
     {
         Resources.CAMERA.apply();
 
-        for (int x = 0; x < WIDTH; x += 127)
+        final int startX = (int) Math.floor(shooter.getCenter().x / 127) * 127 - Display.getWidth() / 2;
+        final int startY = (int) Math.floor(shooter.getCenter().y / 127) * 127 - Display.getHeight() / 2;
+        final int endX   = (int) (Display.getWidth()/2 + shooter.getCenter().x);
+        final int endY   = (int) (Display.getHeight()/2 + shooter.getCenter().y);
+
+        for (int x = startX; x < endX; x += 127)
         {
-            for (int y = 0; y < HEIGHT; y += 127)
+            for (int y = startY; y < endY; y += 127)
             {
                 batcher.drawTexture2d(Resources.SAND_BG, new Vector2(x, y));
             }
