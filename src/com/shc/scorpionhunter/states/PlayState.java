@@ -11,6 +11,7 @@ import com.shc.silenceengine.core.Display;
 import com.shc.silenceengine.core.Game;
 import com.shc.silenceengine.graphics.Batcher;
 import com.shc.silenceengine.graphics.Color;
+import com.shc.silenceengine.graphics.opengl.Texture;
 import com.shc.silenceengine.input.Keyboard;
 import com.shc.silenceengine.math.Vector2;
 import com.shc.silenceengine.scene.Scene;
@@ -93,14 +94,22 @@ public class PlayState extends GameState
     {
         Resources.CAMERA.apply();
 
-        final int startX = (int) Math.floor(shooter.getCenter().x / 127) * 127 - Display.getWidth() / 2;
-        final int startY = (int) Math.floor(shooter.getCenter().y / 127) * 127 - Display.getHeight() / 2;
+        final Texture background = Resources.SAND_BG;
+
+        final int bgWidth = (int) background.getWidth();
+        final int bgHeight = (int) background.getHeight();
+
+        final int displayWidth  = Display.getWidth();
+        final int displayHeight = Display.getHeight();
+
+        final int startX = (int) Math.floor(shooter.getCenter().x / bgWidth) * bgWidth - displayWidth / 2;
+        final int startY = (int) Math.floor(shooter.getCenter().y / bgHeight) * bgHeight - displayHeight / 2;
         final int endX   = (int) (Display.getWidth()/2 + shooter.getCenter().x);
         final int endY   = (int) (Display.getHeight()/2 + shooter.getCenter().y);
 
-        for (int x = startX; x < endX; x += 127)
+        for (int x = startX; x < endX; x += bgWidth)
         {
-            for (int y = startY; y < endY; y += 127)
+            for (int y = startY; y < endY; y += bgHeight)
             {
                 batcher.drawTexture2d(Resources.SAND_BG, new Vector2(x, y));
             }

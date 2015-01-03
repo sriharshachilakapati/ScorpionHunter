@@ -98,6 +98,9 @@ public class ScorpionHunter extends Game
         Resources.BLOOD            = spriteSheet.getCell(1, 1);
         Resources.SAND_BG          = spriteSheet.getCell(1, 2);
 
+        // TEST
+        System.out.println("BG size: " + Resources.SAND_BG.getWidth() + "x" + Resources.SAND_BG.getHeight());
+
         // Bullet needs to be small than the normal textures
         float minU = (Resources.BULLET.getWidth()/2 - 8f) / Resources.BULLET.getWidth();
         float maxU = (Resources.BULLET.getWidth()/2 + 8f) / Resources.BULLET.getWidth();
