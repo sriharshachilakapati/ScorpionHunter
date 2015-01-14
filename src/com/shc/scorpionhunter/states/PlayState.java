@@ -5,7 +5,7 @@ import com.shc.scorpionhunter.ScorpionHunter;
 import com.shc.scorpionhunter.entities.Bullet;
 import com.shc.scorpionhunter.entities.Scorpion;
 import com.shc.scorpionhunter.entities.Shooter;
-import com.shc.silenceengine.collision.colliders.QuadTreeSceneCollider;
+import com.shc.silenceengine.collision.colliders.DynamicSceneCollider2D;
 import com.shc.silenceengine.collision.colliders.SceneCollider2D;
 import com.shc.silenceengine.core.Display;
 import com.shc.silenceengine.core.Game;
@@ -39,7 +39,7 @@ public class PlayState extends GameState
         GAME_SCENE.addChild(shooter = new Shooter(new Vector2(Display.getWidth()/2, Display.getHeight()/2)));
         GAME_SCENE.init();
 
-        collider = new QuadTreeSceneCollider(Display.getWidth(), Display.getHeight());
+        collider = new DynamicSceneCollider2D();
         collider.setScene(GAME_SCENE);
 
         collider.register(Shooter.class,  Scorpion.class);
