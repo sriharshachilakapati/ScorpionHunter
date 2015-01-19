@@ -2,8 +2,8 @@ package com.shc.scorpionhunter.states;
 
 import com.shc.scorpionhunter.Resources;
 import com.shc.scorpionhunter.ScorpionHunter;
-import com.shc.silenceengine.core.Display;
 import com.shc.silenceengine.core.Game;
+import com.shc.silenceengine.core.GameState;
 import com.shc.silenceengine.graphics.Batcher;
 import com.shc.silenceengine.graphics.Color;
 import com.shc.silenceengine.graphics.TrueTypeFont;
@@ -39,8 +39,8 @@ public class PauseState extends GameState
         font = Resources.HUD_LARGE_FONT;
 
         String title = "PAUSED";
-        x = Display.getWidth()/2 - font.getWidth(title)/2;
-        y = Display.getHeight()/2 - font.getHeight()/2 - 20;
+        x = ScorpionHunter.CANVAS_WIDTH /2 - font.getWidth(title)/2;
+        y = ScorpionHunter.CANVAS_HEIGHT /2 - font.getHeight()/2 - 20;
 
         font.drawString(batcher, title, x, y, Color.random());
 
@@ -48,8 +48,8 @@ public class PauseState extends GameState
         font = Resources.HUD_FONT;
 
         String message = "Press SPACE to RESUME\nPress ESCAPE to QUIT";
-        x = Display.getWidth()/2 - font.getWidth(message)/2;
-        y = Display.getHeight()/2 - font.getHeight()/2 + 60;
+        x = ScorpionHunter.CANVAS_WIDTH /2 - font.getWidth(message)/2;
+        y = ScorpionHunter.CANVAS_HEIGHT /2 - font.getHeight()/2 + 60;
 
         font.drawString(batcher, message, x, y, Color.WHITE);
     }

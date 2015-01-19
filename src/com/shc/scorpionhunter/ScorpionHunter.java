@@ -1,12 +1,12 @@
 package com.shc.scorpionhunter;
 
 import com.shc.scorpionhunter.states.GameOverState;
-import com.shc.scorpionhunter.states.GameState;
 import com.shc.scorpionhunter.states.IntroState;
 import com.shc.scorpionhunter.states.PauseState;
 import com.shc.scorpionhunter.states.PlayState;
 import com.shc.silenceengine.core.Display;
 import com.shc.silenceengine.core.Game;
+import com.shc.silenceengine.core.GameState;
 import com.shc.silenceengine.core.ResourceLoader;
 import com.shc.silenceengine.graphics.Batcher;
 import com.shc.silenceengine.graphics.OrthoCam;
@@ -40,6 +40,10 @@ public class ScorpionHunter extends Game
     // The SCORE and HEALTH of the player
     public static int SCORE;
     public static int HEALTH;
+
+    // The WIDTH and HEIGHT of the CANVAS
+    public static int CANVAS_WIDTH = 640;
+    public static int CANVAS_HEIGHT = 480;
 
     /**
      * This method is called only once the Game starts.
@@ -156,7 +160,6 @@ public class ScorpionHunter extends Game
     public void resize()
     {
         Resources.CAMERA.initProjection(Display.getWidth(), Display.getHeight());
-        Resources.HUD_CAMERA.initProjection(Display.getWidth(), Display.getHeight());
     }
 
     /**

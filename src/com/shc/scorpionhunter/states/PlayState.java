@@ -9,13 +9,16 @@ import com.shc.silenceengine.collision.colliders.DynamicSceneCollider2D;
 import com.shc.silenceengine.collision.colliders.SceneCollider2D;
 import com.shc.silenceengine.core.Display;
 import com.shc.silenceengine.core.Game;
+import com.shc.silenceengine.core.GameState;
 import com.shc.silenceengine.graphics.Batcher;
 import com.shc.silenceengine.graphics.Color;
 import com.shc.silenceengine.graphics.opengl.Texture;
 import com.shc.silenceengine.input.Keyboard;
 import com.shc.silenceengine.math.Vector2;
 import com.shc.silenceengine.scene.Scene;
-import com.shc.silenceengine.utils.*;
+import com.shc.silenceengine.utils.GameTimer;
+import com.shc.silenceengine.utils.MathUtils;
+import com.shc.silenceengine.utils.TimeUtils;
 
 /**
  * @author Sri Harsha Chilakapati
@@ -123,7 +126,7 @@ public class PlayState extends GameState
 
         String scoreString = "Score: " + ScorpionHunter.SCORE;
         int width = Resources.HUD_FONT.getWidth(scoreString);
-        Resources.HUD_FONT.drawString(batcher, scoreString, Display.getWidth() - width - 10, 10, Color.BLUE);
+        Resources.HUD_FONT.drawString(batcher, scoreString, ScorpionHunter.CANVAS_WIDTH - width - 10, 10, Color.BLUE);
 
         String healthString = "\nHealth: " + ScorpionHunter.HEALTH;
         Resources.HUD_FONT.drawString(batcher, healthString, 10, 10, Color.DARK_GREEN);
