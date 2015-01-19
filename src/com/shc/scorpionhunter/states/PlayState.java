@@ -53,7 +53,16 @@ public class PlayState extends GameState
 
         spawnTimer = new GameTimer(spawnTime, TimeUtils.Unit.SECONDS);
         spawnTimer.setCallback(this::spawnScorpion);
+    }
+
+    public void onEnter()
+    {
         spawnTimer.start();
+    }
+
+    public void onLeave()
+    {
+        spawnTimer.stop();
     }
 
     private void spawnScorpion()
