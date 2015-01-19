@@ -7,15 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68ef6db4-3051-4238-9ace-0d46bf8c57f4" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Harsha\GitHub\ScorpionHunter\out\production\ScorpionHunter\com\shc\scorpionhunter\states\GameState.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Harsha\GitHub\ScorpionHunter\src\com\shc\scorpionhunter\states\GameState.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/states/GameOverState.class" afterPath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/states/GameOverState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/states/IntroState.class" afterPath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/states/IntroState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/states/PauseState.class" afterPath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/states/PauseState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/states/PlayState.class" afterPath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/states/PlayState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/ScorpionHunter.class" afterPath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/ScorpionHunter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ScorpionHunter_jar/ScorpionHunter.jar" afterPath="$PROJECT_DIR$/out/artifacts/ScorpionHunter_jar/ScorpionHunter.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/SilenceEngine.jar" afterPath="$PROJECT_DIR$/libs/SilenceEngine.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/entities/Blood.class" afterPath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/entities/Blood.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/entities/Bullet.class" afterPath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/entities/Bullet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/entities/Scorpion.class" afterPath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/entities/Scorpion.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/entities/Shooter.class" afterPath="$PROJECT_DIR$/out/production/ScorpionHunter/com/shc/scorpionhunter/entities/Shooter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shc/scorpionhunter/states/GameOverState.java" afterPath="$PROJECT_DIR$/src/com/shc/scorpionhunter/states/GameOverState.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shc/scorpionhunter/states/IntroState.java" afterPath="$PROJECT_DIR$/src/com/shc/scorpionhunter/states/IntroState.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shc/scorpionhunter/states/PauseState.java" afterPath="$PROJECT_DIR$/src/com/shc/scorpionhunter/states/PauseState.java" />
@@ -49,8 +44,8 @@
       <file leaf-file-name="PlayState.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/shc/scorpionhunter/states/PlayState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5770235" vertical-offset="1938" max-vertical-offset="2380">
-              <caret line="127" column="61" selection-start-line="127" selection-start-column="61" selection-end-line="127" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.3550914" vertical-offset="918" max-vertical-offset="2380">
+              <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,8 +66,8 @@
       <file leaf-file-name="PauseState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/shc/scorpionhunter/states/PauseState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="351" max-vertical-offset="935">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="935">
+              <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -81,8 +76,8 @@
       <file leaf-file-name="IntroState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/shc/scorpionhunter/states/IntroState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="351" max-vertical-offset="935">
-              <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="935">
+              <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -91,8 +86,8 @@
       <file leaf-file-name="GameOverState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/shc/scorpionhunter/states/GameOverState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="351" max-vertical-offset="935">
-              <caret line="49" column="71" selection-start-line="49" selection-start-column="71" selection-end-line="49" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="935">
+              <caret line="23" column="75" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -124,12 +119,12 @@
       <file leaf-file-name="ScorpionHunter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/shc/scorpionhunter/ScorpionHunter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="569" max-vertical-offset="3111">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2320" max-vertical-offset="3060">
+              <caret line="148" column="60" selection-start-line="148" selection-start-column="60" selection-end-line="148" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6074#6075#0" expanded="true" />
-                <element signature="e#6162#6163#0" expanded="true" />
+                <element signature="e#5988#5989#0" expanded="true" />
+                <element signature="e#6076#6077#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -151,10 +146,10 @@
         <option value="$PROJECT_DIR$/src/com/shc/scorpionhunter/entities/Shooter.java" />
         <option value="$PROJECT_DIR$/src/com/shc/scorpionhunter/entities/Scorpion.java" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/com/shc/scorpionhunter/states/IntroState.java" />
-        <option value="$PROJECT_DIR$/src/com/shc/scorpionhunter/states/PauseState.java" />
-        <option value="$PROJECT_DIR$/src/com/shc/scorpionhunter/states/GameOverState.java" />
         <option value="$PROJECT_DIR$/src/com/shc/scorpionhunter/ScorpionHunter.java" />
+        <option value="$PROJECT_DIR$/src/com/shc/scorpionhunter/states/IntroState.java" />
+        <option value="$PROJECT_DIR$/src/com/shc/scorpionhunter/states/GameOverState.java" />
+        <option value="$PROJECT_DIR$/src/com/shc/scorpionhunter/states/PauseState.java" />
         <option value="$PROJECT_DIR$/src/com/shc/scorpionhunter/states/PlayState.java" />
       </list>
     </option>
@@ -667,7 +662,13 @@
       <option name="project" value="LOCAL" />
       <updated>1421227955277</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Updated SilenceEngine version to 0.0.2">
+      <created>1421672353036</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1421672353036</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -719,7 +720,8 @@
     <MESSAGE value="Updated SilenceEngine version" />
     <MESSAGE value="Added README" />
     <MESSAGE value="Updated to Dynamic Scene Collider" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated to Dynamic Scene Collider" />
+    <MESSAGE value="Updated SilenceEngine version to 0.0.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated SilenceEngine version to 0.0.2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -738,8 +740,8 @@
           <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6074#6075#0" expanded="true" />
-            <element signature="e#6162#6163#0" expanded="true" />
+            <element signature="e#5988#5989#0" expanded="true" />
+            <element signature="e#6076#6077#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1078,44 +1080,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shc/scorpionhunter/ScorpionHunter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="569" max-vertical-offset="3111">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2320" max-vertical-offset="3060">
+          <caret line="148" column="60" selection-start-line="148" selection-start-column="60" selection-end-line="148" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6074#6075#0" expanded="true" />
-            <element signature="e#6162#6163#0" expanded="true" />
+            <element signature="e#5988#5989#0" expanded="true" />
+            <element signature="e#6076#6077#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/shc/scorpionhunter/states/PauseState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="552" max-vertical-offset="935">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shc/scorpionhunter/states/IntroState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="351" max-vertical-offset="935">
-          <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="935">
+          <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shc/scorpionhunter/states/GameOverState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="351" max-vertical-offset="935">
-          <caret line="49" column="71" selection-start-line="49" selection-start-column="71" selection-end-line="49" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="935">
+          <caret line="23" column="75" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/shc/scorpionhunter/states/PauseState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="935">
+          <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shc/scorpionhunter/states/PlayState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5770235" vertical-offset="1938" max-vertical-offset="2380">
-          <caret line="127" column="61" selection-start-line="127" selection-start-column="61" selection-end-line="127" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.3550914" vertical-offset="918" max-vertical-offset="2380">
+          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -21,7 +21,7 @@ public class PauseState extends GameState
             Game.end();
 
         if (Keyboard.isClicked(Keyboard.KEY_SPACE))
-            ScorpionHunter.CURRENT_STATE = ScorpionHunter.PLAY_STATE;
+            Game.setGameState(ScorpionHunter.PLAY_STATE);
     }
 
     @Override

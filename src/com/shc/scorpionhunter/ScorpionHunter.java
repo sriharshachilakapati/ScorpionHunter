@@ -31,7 +31,6 @@ public class ScorpionHunter extends Game
     }
 
     // The GameStates in this game.
-    public static GameState CURRENT_STATE;
     public static GameState INTRO_STATE;
     public static GameState PLAY_STATE;
     public static GameState PAUSE_STATE;
@@ -61,7 +60,7 @@ public class ScorpionHunter extends Game
         GAMEOVER_STATE = new GameOverState();
 
         // Initially show the INTRO state
-        CURRENT_STATE = INTRO_STATE;
+        setGameState(INTRO_STATE);
     }
 
     // This is a private method used to initialize resources
@@ -135,8 +134,7 @@ public class ScorpionHunter extends Game
      */
     public void update(float delta)
     {
-        // Update the current GameState
-        CURRENT_STATE.update(delta);
+        // No need to update here, handled by the game state
     }
 
     /**
@@ -148,8 +146,7 @@ public class ScorpionHunter extends Game
      */
     public void render(float delta, Batcher batcher)
     {
-        // Render the current GameState
-        CURRENT_STATE.render(delta, batcher);
+        // No need to render here, handled by the game state
     }
 
     /**

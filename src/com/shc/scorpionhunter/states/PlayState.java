@@ -59,7 +59,7 @@ public class PlayState extends GameState
     private void spawnScorpion()
     {
         // Only spawn if this is the current state
-        if (ScorpionHunter.CURRENT_STATE != this)
+        if (Game.getGameState() != this)
             return;
 
         // Spawn a scorpion
@@ -83,10 +83,10 @@ public class PlayState extends GameState
     public void update(float delta)
     {
         if (Keyboard.isClicked(Keyboard.KEY_ESCAPE))
-            ScorpionHunter.CURRENT_STATE = ScorpionHunter.PAUSE_STATE;
+            Game.setGameState(ScorpionHunter.PAUSE_STATE);
 
         if (ScorpionHunter.HEALTH <= 0)
-            ScorpionHunter.CURRENT_STATE = ScorpionHunter.GAMEOVER_STATE;
+            Game.setGameState(ScorpionHunter.GAMEOVER_STATE);
 
         GAME_SCENE.update(delta);
         collider.checkCollisions();

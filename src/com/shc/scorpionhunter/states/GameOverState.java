@@ -21,7 +21,7 @@ public class GameOverState extends GameState
             Game.end();
 
         if (Keyboard.isClicked(Keyboard.KEY_SPACE))
-            ScorpionHunter.CURRENT_STATE = ScorpionHunter.PLAY_STATE = new PlayState();
+            Game.setGameState(ScorpionHunter.PLAY_STATE = new PlayState());
     }
 
     @Override
