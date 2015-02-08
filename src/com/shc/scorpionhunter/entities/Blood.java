@@ -56,6 +56,7 @@ public class Blood extends Entity2D
         Color color = Color.TRANSPARENT.copy();
         color.setAlpha(life);
 
+        // It is not possible to tint a texture using Graphics2D
         batcher.applyTransform(getTransform());
         batcher.drawTexture2d(Resources.BLOOD, Vector2.ZERO, color);
     }

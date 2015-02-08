@@ -2,9 +2,11 @@ package com.shc.scorpionhunter.entities;
 
 import com.shc.scorpionhunter.Resources;
 import com.shc.scorpionhunter.states.PlayState;
+import com.shc.silenceengine.core.Game;
 import com.shc.silenceengine.entity.Entity2D;
 import com.shc.silenceengine.geom2d.Rectangle;
 import com.shc.silenceengine.graphics.Batcher;
+import com.shc.silenceengine.graphics.Graphics2D;
 import com.shc.silenceengine.math.Vector2;
 import com.shc.silenceengine.utils.GameTimer;
 import com.shc.silenceengine.utils.MathUtils;
@@ -100,11 +102,16 @@ public class Scorpion extends Entity2D
      */
     public void render(float delta, Batcher batcher)
     {
-        batcher.applyTransform(getTransform());
+        Graphics2D g2d = Game.getGraphics2D();
+
+        g2d.transform(getTransform());
+
         if (frozen)
-            batcher.drawTexture2d(Resources.SCORPION_FROZEN, Vector2.ZERO);
+            g2d.drawTexture(Resources.SCORPION_FROZEN, Vector2.ZERO);
         else
-            batcher.drawTexture2d(Resources.SCORPION_NORMAL, getVelocity().scale(delta));
+            g2d.drawTexture(Resources.SCORPION_NORMAL, getVelocity().scale(delta));
+
+        g2d.resetTransform();
     }
 
     /**

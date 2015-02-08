@@ -3,11 +3,15 @@ package com.shc.scorpionhunter.entities;
 import com.shc.scorpionhunter.Resources;
 import com.shc.scorpionhunter.ScorpionHunter;
 import com.shc.scorpionhunter.states.PlayState;
+import com.shc.silenceengine.core.Game;
 import com.shc.silenceengine.entity.Entity2D;
 import com.shc.silenceengine.geom2d.Rectangle;
+import com.shc.silenceengine.graphics.BaseCamera;
 import com.shc.silenceengine.graphics.Batcher;
+import com.shc.silenceengine.graphics.Graphics2D;
 import com.shc.silenceengine.graphics.opengl.Texture;
 import com.shc.silenceengine.input.Keyboard;
+import com.shc.silenceengine.math.Transform;
 import com.shc.silenceengine.math.Vector2;
 import com.shc.silenceengine.utils.*;
 
@@ -73,10 +77,10 @@ public class Shooter extends Entity2D
             velocity = 4;
 
         // Calculate the velocity based on the direction we are moving
-        float sinAngle = (float) Math.sin(Math.toRadians(getRotation() + 90));
-        float cosAngle = (float) Math.cos(Math.toRadians(getRotation() + 90));
+        float sinAngle = MathUtils.sin(getRotation() + 90);
+        float cosAngle = MathUtils.cos(getRotation() + 90);
 
-        setVelocity(new Vector2(cosAngle, sinAngle).scale(velocity));
+        setVelocity(new Vector2(cosAngle, sinAngle).scaleSelf(velocity));
 
         if (Keyboard.isClicked(Keyboard.KEY_SPACE) && canShoot)
         {
@@ -86,7 +90,7 @@ public class Shooter extends Entity2D
             canShoot = false;
 
             // Calculate the bullet position
-            Vector2 bulletPosition = new Vector2(8, -34).rotate(getRotation()).add(getCenter());
+            Vector2 bulletPosition = new Vector2(8, -34).rotateSelf(getRotation()).addSelf(getCenter());
 
             // Add the bullet to the scene
             PlayState.GAME_SCENE.addChild(new Bullet(bulletPosition, getRotation()));
@@ -139,7 +143,10 @@ public class Shooter extends Entity2D
      */
     public void render(float delta, Batcher batcher)
     {
-        batcher.applyTransform(getTransform());
-        batcher.drawTexture2d(texture, getVelocity().scale(delta));
+        Graphics2D g2d = Game.getGraphics2D();
+
+        g2d.transform(getTransform());
+        g2d.drawTexture(texture, getVelocity().scale(delta));
+        g2d.resetTransform();
     }
 }

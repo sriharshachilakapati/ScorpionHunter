@@ -1,6 +1,6 @@
 #ScorpionHunter - A SilenceEngine Demo Game
 
-This is a demo game written using the [SilenceEngine](https://github.com/sriharshachilakapati/SilenceEngine), a 2D/3D game engine. This game is currently using the development version of SilenceEngine, version 0.0.2 alpha.
+This is a demo game written using the [SilenceEngine](https://github.com/sriharshachilakapati/SilenceEngine), a 2D/3D game engine. This game is currently using the development version of SilenceEngine, version 0.0.3 alpha.
 
 This game is a 2D Top-Down shooter, a genre of 2D games where the entire world is rendered in a top-down way, and the player (means you) is engaged in a lone assault with the monsters. In this game, you are a man who hunts down scorpions, giant ones to gain score.
 

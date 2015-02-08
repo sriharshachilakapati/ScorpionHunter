@@ -3,9 +3,11 @@ package com.shc.scorpionhunter.entities;
 import com.shc.scorpionhunter.Resources;
 import com.shc.scorpionhunter.ScorpionHunter;
 import com.shc.scorpionhunter.states.PlayState;
+import com.shc.silenceengine.core.Game;
 import com.shc.silenceengine.entity.Entity2D;
 import com.shc.silenceengine.geom2d.Rectangle;
 import com.shc.silenceengine.graphics.Batcher;
+import com.shc.silenceengine.graphics.Graphics2D;
 import com.shc.silenceengine.math.Vector2;
 import com.shc.silenceengine.utils.*;
 
@@ -34,11 +36,11 @@ public class Bullet extends Entity2D
         float velocity = -8;
 
         // Calculate the angles
-        float sinAngle = (float) Math.sin(Math.toRadians(getRotation() + 90));
-        float cosAngle = (float) Math.cos(Math.toRadians(getRotation() + 90));
+        float sinAngle = MathUtils.sin(getRotation() + 90);
+        float cosAngle = MathUtils.cos(getRotation() + 90);
 
         // Calculate the velocity
-        setVelocity(new Vector2(cosAngle, sinAngle).scale(velocity));
+        getVelocity().set(cosAngle, sinAngle).scaleSelf(velocity);
 
         // Start the death timer, will only have 5 seconds of life
         GameTimer timer = new GameTimer(5, TimeUtils.Unit.SECONDS);
@@ -90,7 +92,10 @@ public class Bullet extends Entity2D
      */
     public void render(float delta, Batcher batcher)
     {
-        batcher.applyTransform(getTransform());
-        batcher.drawTexture2d(Resources.BULLET, getVelocity().scale(delta));
+        Graphics2D g2d = Game.getGraphics2D();
+
+        g2d.transform(getTransform());
+        g2d.drawTexture(Resources.BULLET, getVelocity().scale(delta));
+        g2d.resetTransform();
     }
 }
