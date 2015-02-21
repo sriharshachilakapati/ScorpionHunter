@@ -1,8 +1,8 @@
 package com.shc.scorpionhunter;
 
 import com.shc.silenceengine.audio.Sound;
-import com.shc.silenceengine.graphics.OrthoCam;
 import com.shc.silenceengine.graphics.TrueTypeFont;
+import com.shc.silenceengine.graphics.cameras.OrthoCam;
 import com.shc.silenceengine.graphics.opengl.Texture;
 
 /**

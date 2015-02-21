@@ -6,7 +6,7 @@ import com.shc.scorpionhunter.entities.Bullet;
 import com.shc.scorpionhunter.entities.Scorpion;
 import com.shc.scorpionhunter.entities.Shooter;
 import com.shc.silenceengine.collision.colliders.DynamicSceneCollider2D;
-import com.shc.silenceengine.collision.colliders.SceneCollider2D;
+import com.shc.silenceengine.collision.colliders.ISceneCollider2D;
 import com.shc.silenceengine.core.Display;
 import com.shc.silenceengine.core.Game;
 import com.shc.silenceengine.core.GameState;
@@ -26,7 +26,7 @@ import com.shc.silenceengine.utils.TimeUtils;
 public class PlayState extends GameState
 {
     public static Scene GAME_SCENE;
-    private SceneCollider2D collider;
+    private ISceneCollider2D collider;
 
     private GameTimer spawnTimer;
     private float     spawnTime;
@@ -83,7 +83,7 @@ public class PlayState extends GameState
         GAME_SCENE.addChild(new Scorpion(position, 2));
 
         // Speed up spawning from next time
-        spawnTime = MathUtils.clamp(spawnTime - 0.005f, 7, 10);
+        spawnTime = MathUtils.clamp(spawnTime - 0.005f, 5, 10);
         spawnTimer.setTime(spawnTime, TimeUtils.Unit.SECONDS);
         spawnTimer.start();
     }
@@ -105,6 +105,7 @@ public class PlayState extends GameState
     public void render(float delta, Batcher batcher)
     {
         Resources.CAMERA.apply();
+        Game.getGraphics2D().setCamera(Resources.CAMERA);
 
         final Texture background = Resources.SAND_BG;
 
@@ -123,7 +124,7 @@ public class PlayState extends GameState
         {
             for (int y = startY; y < endY; y += bgHeight)
             {
-                batcher.drawTexture2d(Resources.SAND_BG, new Vector2(x, y));
+                Game.getGraphics2D().drawTexture(Resources.SAND_BG, x, y);
             }
         }
 

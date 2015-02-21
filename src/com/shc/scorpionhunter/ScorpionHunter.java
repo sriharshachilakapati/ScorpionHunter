@@ -9,9 +9,9 @@ import com.shc.silenceengine.core.Game;
 import com.shc.silenceengine.core.GameState;
 import com.shc.silenceengine.core.ResourceLoader;
 import com.shc.silenceengine.graphics.Batcher;
-import com.shc.silenceengine.graphics.OrthoCam;
 import com.shc.silenceengine.graphics.SpriteSheet;
 import com.shc.silenceengine.graphics.TrueTypeFont;
+import com.shc.silenceengine.graphics.cameras.OrthoCam;
 
 /**
  * This is the main Game class of the ScorpionHunter example game made using

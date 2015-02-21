@@ -4,12 +4,14 @@ import com.shc.scorpionhunter.Resources;
 import com.shc.scorpionhunter.ScorpionHunter;
 import com.shc.scorpionhunter.states.PlayState;
 import com.shc.silenceengine.core.Game;
-import com.shc.silenceengine.entity.Entity2D;
-import com.shc.silenceengine.geom2d.Rectangle;
 import com.shc.silenceengine.graphics.Batcher;
 import com.shc.silenceengine.graphics.Graphics2D;
 import com.shc.silenceengine.math.Vector2;
-import com.shc.silenceengine.utils.*;
+import com.shc.silenceengine.math.geom2d.Rectangle;
+import com.shc.silenceengine.scene.entity.Entity2D;
+import com.shc.silenceengine.utils.GameTimer;
+import com.shc.silenceengine.utils.MathUtils;
+import com.shc.silenceengine.utils.TimeUtils;
 
 /**
  * Represents the Bullet in the Game.
