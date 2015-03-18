@@ -41,8 +41,8 @@ public class ScorpionHunter extends Game
     public static int HEALTH;
 
     // The WIDTH and HEIGHT of the CANVAS
-    public static int CANVAS_WIDTH = 640;
-    public static int CANVAS_HEIGHT = 480;
+    public static int CANVAS_WIDTH = 800;
+    public static int CANVAS_HEIGHT = 600;
 
     /**
      * This method is called only once the Game starts.
@@ -100,9 +100,6 @@ public class ScorpionHunter extends Game
         Resources.BULLET           = spriteSheet.getCell(1, 0);
         Resources.BLOOD            = spriteSheet.getCell(1, 1);
         Resources.SAND_BG          = spriteSheet.getCell(1, 2);
-
-        // TEST
-        System.out.println("BG size: " + Resources.SAND_BG.getWidth() + "x" + Resources.SAND_BG.getHeight());
 
         // Bullet needs to be small than the normal textures
         float minU = (Resources.BULLET.getWidth()/2 - 8f) / Resources.BULLET.getWidth();

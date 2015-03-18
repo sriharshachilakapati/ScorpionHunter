@@ -6,6 +6,7 @@ import com.shc.silenceengine.core.Game;
 import com.shc.silenceengine.core.GameState;
 import com.shc.silenceengine.graphics.Batcher;
 import com.shc.silenceengine.graphics.Color;
+import com.shc.silenceengine.graphics.Graphics2D;
 import com.shc.silenceengine.graphics.TrueTypeFont;
 import com.shc.silenceengine.input.Keyboard;
 
@@ -27,8 +28,20 @@ public class PauseState extends GameState
     @Override
     public void render(float delta, Batcher batcher)
     {
+        // Render the play state behind this screen
+        ScorpionHunter.PLAY_STATE.render(delta, batcher);
+
         // Apply the HUD camera
         Resources.HUD_CAMERA.apply();
+
+        Color gray = Color.REUSABLE_STACK.pop();
+        gray.set(Color.BLACK).setAlpha(0.9f);
+
+        Graphics2D g2D = Game.getGraphics2D();
+        g2D.setColor(gray);
+        g2D.fillRect(0, 0, 10000, 10000);
+
+        Color.REUSABLE_STACK.push(gray);
 
         TrueTypeFont font;
 
@@ -52,5 +65,11 @@ public class PauseState extends GameState
         y = ScorpionHunter.CANVAS_HEIGHT /2 - font.getHeight()/2 + 60;
 
         font.drawString(batcher, message, x, y, Color.WHITE);
+    }
+
+    @Override
+    public void resize()
+    {
+        ScorpionHunter.PLAY_STATE.resize();
     }
 }
